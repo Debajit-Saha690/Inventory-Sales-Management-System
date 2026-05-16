@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transaction History</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="header">
+    <h1>Transaction History</h1>
+    <p>All stock movements (Purchase & Sale)</p>
+</div>
+
+<div style="text-align:center; margin-top:25px;">
+    <a href="/export_transactions_pdf" class="btn export-btn">
+        📄 Download PDF Report
+    </a>
+</div>
+
+<div class="container dashboard">
+
+<table>
+
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Product</th>
+            <th>Type</th>
+            <th>Quantity</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+    {% for t in transactions_history %}
+
+        <tr>
+
+            <td>{{ t.id }}</td>
+
+            <td><strong>{{ t.product_name }}</strong></td>
+
+            <td>
+                {% if t.type == 'purchase' %}
+                    <span class="badge-success">PURCHASE</span>
+                {% else %}
+                    <span class="badge-warning">SALE</span>
+                {% endif %}
+            </td>
+
+            <td>{{ t.quantity }}</td>
+
+            <td>{{ t.transaction_date.strftime('%d %b %Y, %I:%M %p') }}</td>
+
+        </tr>
+
+    {% endfor %}
+
+    </tbody>
+
+</table>
+
+</div>
+
+<a href="/" class="back-home">⬅ Back to Dashboard</a>
+
+</body>
+</html>

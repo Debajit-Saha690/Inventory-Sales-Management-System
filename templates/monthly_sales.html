@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <title>Monthly Sales Analytics</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div class="header">
+
+    <h1>📈 Monthly Sales Analytics</h1>
+
+    <p>Sales performance overview</p>
+
+</div>
+
+<div class="container dashboard">
+
+    <canvas id="salesChart"></canvas>
+
+</div>
+
+<br>
+
+<a href="/" class="back-home">⬅ Back to Dashboard</a>
+
+<script>
+
+    const ctx = document.getElementById('salesChart');
+
+    new Chart(ctx, {
+
+        type: 'bar',
+
+        data: {
+
+            labels: {{ months | tojson }},
+
+            datasets: [{
+
+                label: 'Monthly Sales (₹)',
+                data: {{ sales | tojson }},
+                backgroundColor: '#38bdf8',
+                borderRadius: 10,
+                barPercentage: 0.4,
+                categoryPercentage: 0.5
+
+            }]
+        },
+
+        options: {
+
+            responsive: true,
+
+            plugins: {
+
+                legend: {
+                    labels: {
+                        color: 'white'
+                    }
+                }
+            },
+
+            scales: {
+
+                x: {
+                    ticks: {
+                        color: 'white'
+                    }
+                },
+
+                y: {
+                    ticks: {
+                        color: 'white'
+                    }
+                }
+            }
+        }
+    });
+
+</script>
+
+</body>
+</html>

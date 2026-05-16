@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Search Product</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="header">
+
+    <h1>Search Product</h1>
+
+    <p>
+        Find products quickly using multiple search filters.
+    </p>
+
+</div>
+
+<div class="container dashboard">
+
+    <!-- SEARCH FORM -->
+
+    <form method="POST">
+
+        <label for="search_type">
+
+            <h3>Search Type</h3>
+
+        </label>
+
+        <select name="search_type"
+                id="search_type">
+
+            <option value="id">
+                Search by ID
+            </option>
+
+            <option value="name">
+                Search by Name
+            </option>
+
+            <option value="category">
+                Search by Category
+            </option>
+
+        </select>
+
+        <label for="value">
+
+            <h3>Enter Value</h3>
+
+        </label>
+
+        <input type="text"
+               id="value"
+               name="value"
+               placeholder="Enter product ID, name or category">
+
+        <button type="submit" class="btn">🔍 Search Product</button>
+
+    </form>
+
+
+    <!-- SINGLE RESULT TABLE -->
+
+    {% if result %}
+
+    <h2 style="margin-top:35px;">Product Details</h2>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>ID</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Cost Price</th>
+                <th>Selling Price</th>
+                <th>Stock Status</th>
+                <th>Supplier</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+
+                <td>{{ result.id }}</td>
+
+                <td>{{ result.name }}</td>
+
+                <td>{{ result.category }}</td>
+
+                <td>₹ {{ result.cost_price }}</td>
+
+                <td>₹ {{ result.selling_price }}</td>
+
+                <td>
+
+                    {% if result.stock == 0 %}
+                        <span class="badge-danger">OUT OF STOCK</span>
+
+                    {% elif result.stock <= result.low_stock_limit %}
+                        <span class="badge-warning">LOW STOCK</span>
+
+                    {% else %}
+                        <span class="badge-success">IN STOCK</span>
+                    {% endif %}
+
+                    <div style="font-size:13px; color:rgb(101, 245, 76);">
+                        {{ result.stock }} / {{ result.low_stock_limit }}
+                    </div>
+
+                </td>
+
+                <td>{{ result.supplier }}</td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+    {% endif %}
+
+
+    <!-- MULTIPLE RESULTS TABLE -->
+
+    {% if results %}
+
+    <h2 style="margin-top:35px;">
+
+        Search Results
+
+    </h2>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>ID</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Cost Price</th>
+                <th>Selling Price</th>
+                <th>Stock Status</th>
+                <th>Supplier</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+        {% for r in results %}
+
+            <tr>
+
+                <td>{{ r.id }}</td>
+
+                <td>{{ r.name }}</td>
+
+                <td>{{ r.category }}</td>
+
+                <td>₹ {{ r.cost_price }}</td>
+
+                <td>₹ {{ r.selling_price }}</td>
+
+                <td>
+
+                    {% if r.stock == 0 %}
+                        <span class="badge-danger">OUT OF STOCK</span>
+
+                    {% elif r.stock <= r.low_stock_limit %}
+                        <span class="badge-warning">LOW STOCK</span>
+
+                    {% else %}
+                        <span class="badge-success">IN STOCK</span>
+                    {% endif %}
+
+                    <div style="font-size:12px; color:gray;">
+                        {{ r.stock }} / {{ r.low_stock_limit }}
+                    </div>
+
+                </td>
+
+                <td>{{ r.supplier }}</td>
+
+            </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+    {% endif %}
+
+
+    <!-- NO RESULT MESSAGE -->
+
+    {% if message %}
+
+    <div class="card"
+         style="margin-top:30px; text-align:center;">
+
+        <h3>{{ message }}</h3>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+<a href="/" class="back-home">⬅ Back to Dashboard</a>
+
+</body>
+</html>

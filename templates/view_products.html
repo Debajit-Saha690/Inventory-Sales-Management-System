@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Products</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="header">
+    <h1>All Products</h1>
+    <p>Manage inventory, update products and monitor stock levels.</p>
+</div>
+
+<!-- EXPORT BUTTON -->
+<div style="text-align:center; margin-top:25px;">
+    <a href="/export_products_pdf" class="btn export-btn">
+        ⬇ Export All Products
+    </a>
+</div>
+
+<div class="container dashboard">
+
+<table>
+
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Cost Price</th>
+            <th>Selling Price</th>
+            <th>Stock</th>
+            <th>Supplier</th>
+            <th>Added on</th>
+            <th>Action</th>
+            
+        </tr>
+    </thead>
+
+    <tbody>
+
+    {% for p in products %}
+    <tr>
+
+        <td>{{ p.id }}</td>
+
+        <td>
+            <strong>{{ p.name }}</strong>
+        </td>
+
+        <td>{{ p.category }}</td>
+
+        <td>₹ {{ p.cost_price }}</td>
+
+        <td>₹ {{ p.selling_price }}</td>
+
+        <td>
+            <div>
+                {% if p.stock <= p.low_stock_limit and p.stock > 0 %}
+                    <span class="badge-warning">LOW STOCK</span>
+                {% elif p.stock == 0 %}
+                    <span class="badge-danger">OUT OF STOCK</span>
+                {% else %}
+                    <span class="badge-success">IN STOCK</span>
+                {% endif %}
+            </div>
+            <div style="font-size:13px; color:rgb(108, 245, 98);">
+                {{ p.stock }} / {{ p.low_stock_limit }}
+            </div>
+        </td>
+
+        <td>{{p.supplier}}</td>
+
+        <td>{{ p.created_at.strftime('%d %b %Y, %I:%M %p') }}</td>
+        
+        <td>
+            <a href="/update/{{ p.id }}" class="btn update-btn">
+                ✏ Edit
+            </a>
+
+            <a href="/delete/{{ p.id }}" class="btn delete-btn">
+               🗑 Delete
+            </a>
+        </td>
+
+    </tr>
+    {% endfor %}
+
+    </tbody>
+
+</table>
+
+</div>
+
+<br>
+
+<a href="/" class="back-home">⬅ Back to Dashboard</a>
+
+</body>
+</html>

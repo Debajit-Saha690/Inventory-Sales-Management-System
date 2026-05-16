@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <title>StockFlow Dashboard</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+
+    <h1>Inventory & Sales Management System</h1>
+
+    <p>Smart Inventory Dashboard</p>
+
+</div>
+
+<!-- HERO -->
+<section class="hero">
+
+    <p>
+        Manage products, monitor inventory, track stock levels,
+        and generate real-time insights using analytics dashboard.
+    </p>
+
+</section>
+
+
+<div class="container dashboard">
+
+    <h2>📊 Inventory Dashboard Overview</h2>
+
+    <div class="grid">
+
+        <!-- TOTAL PRODUCTS -->
+        <div class="card">
+
+            <div class="icon">📦</div>
+
+            <h3>Total Products</h3>
+
+            <h2>{{ total_products }}</h2>
+
+            <p>Products available in system</p>
+
+        </div>
+
+        <!-- TOTAL STOCK -->
+        <div class="card">
+
+            <div class="icon">🏬</div>
+
+            <h3>Total Stock</h3>
+
+            <h2>{{ total_stock }}</h2>
+
+            <p>Total quantity in inventory</p>
+
+        </div>
+
+        <!-- LOW STOCK -->
+        <div class="card">
+
+            <div class="icon">⚠️</div>
+
+            <h3>Low Stock Items</h3>
+
+            <h2>{{ low_stock }}</h2>
+
+            <p>Items below threshold</p>
+
+        </div>
+
+        <!-- OUT OF STOCK -->
+        <div class="card">
+
+            <div class="icon">⚠️</div>
+
+            <h3>Out Of Stock Items</h3>
+
+            <h2>{{ out_of_stock }}</h2>
+
+            <p>Items below threshold</p>
+
+        </div>
+
+        <!-- INVENTORY VALUE -->
+        <div class="card">
+
+            <div class="icon">💰</div>
+
+            <h3>Total Inventory Value</h3>
+
+            <h2>₹ {{ "{:,.0f}".format(inventory_value) }}</h2>
+
+            <p>Total investment value of current stock</p>
+        </div>
+
+        <!-- REVENUE -->
+        <div class="card">
+
+            <div class="icon">📈</div>
+
+            <h3>Total Expected Revenue</h3>
+
+            <h2>₹ {{ "{:,.0f}".format(revenue) }}</h2>
+
+            <p>Total potential sales value</p>
+        </div>
+
+        <!-- PROFIT -->
+        <div class="card">
+
+            <div class="icon">💹</div>
+
+            <h3>Total Expected Profit</h3>
+
+            <h2>₹ {{ "{:,.0f}".format(profit_value) }}</h2>
+
+            <p><b>{{ profit_label }}</b></p>
+
+            <p><b>Profit Margin: {{ profit_margin }}%</b></p>
+        </div>
+
+    </div>
+
+</div>
+
+<br>
+
+<div style="
+    display:flex;
+    justify-content:center;
+    gap:70px;
+    margin:25px 0;
+    flex-wrap:wrap;
+">
+
+    <a href="/category-analytics" class="btn big-btn">
+        📊 Category Analytics
+    </a>
+
+    <a href="/monthly-sales" class="btn big-btn">
+        📈 Monthly Sales Graph
+    </a>
+
+</div>
+
+<br>
+
+<div class="container dashboard">
+
+    <h2>🕒 Recently Added Products</h2>
+
+    <div class="grid">
+
+        {% for p in recent_products %}
+
+        <div class="card">
+
+            <div class="icon">📦</div>
+
+            <h3>{{ p.name }}</h3>
+
+            <p>{{ p.category }}</p>
+
+            <p>
+                Stock: {{ p.stock }}
+            </p>
+
+            <p>
+                Added On:
+                {{ p.created_at.strftime('%d %b %Y, %I:%M %p') }}
+            </p>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+<br>
+
+<div class="container dashboard">
+
+    <h2>⚡ Quick Actions</h2>
+
+    <span class="badge">System Modules</span>
+
+    <div class="grid">
+
+        <!-- ADD -->
+        <div class="card">
+
+            <div class="icon">➕</div>
+
+            <h3>Add Product</h3>
+
+            <p>Add new inventory items</p>
+
+            <a href="/add" class="btn">Open</a>
+
+        </div>
+
+        <!-- VIEW -->
+        <div class="card">
+
+            <div class="icon">📦</div>
+
+            <h3>View Products</h3>
+
+            <p>Manage all products</p>
+
+            <a href="/view" class="btn">Open</a>
+
+        </div>
+
+        <!-- SEARCH -->
+        <div class="card">
+
+            <div class="icon">🔍</div>
+
+            <h3>Search Product</h3>
+
+            <p>Find products quickly</p>
+
+            <a href="/search" class="btn">Open</a>
+
+        </div>
+
+        <!-- LOW STOCK -->
+        <div class="card">
+
+            <div class="icon">⚠️</div>
+
+            <h3>Low Stock</h3>
+
+            <p>Check restock alerts</p>
+
+            <a href="/low-stock" class="btn">Open</a>
+
+        </div>
+
+        <!-- OUT OF STOCK -->
+        <div class="card">
+
+            <div class="icon">⚠️</div>
+
+            <h3>Out Of Stock</h3>
+
+            <p>Monitor products with zero inventory</p>
+
+            <a href="/out-of-stock" class="btn">Open</a>
+
+        </div>
+
+        <!-- STOCK TRANSACTIONS -->
+         <div class="card">
+
+            <div class="icon">🔁</div>
+
+            <h3>Stock Transactions</h3>
+
+            <p>Manage purchase and sale entries</p>
+
+            <a href="/transaction" class="btn">Open</a>
+
+        </div>
+
+        <!-- TRANSACTION HISTORY -->
+         <div class="card">
+
+            <div class="icon">📜</div>
+
+            <h3>Transaction History</h3>
+
+            <p>View all purchase and sale records</p>
+
+            <a href="/transactions_history" class="btn">Open</a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

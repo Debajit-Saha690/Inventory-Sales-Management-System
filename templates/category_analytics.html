@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Category Analytics</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="header">
+    <h1>Category Analytics</h1>
+    <p>View category-wise product distribution.</p>
+</div>
+
+<div class="container dashboard">
+
+<table>
+
+    <thead>
+        <tr>
+            <th>Category</th>
+            <th>Total Products</th>
+            <th>Total Stock</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+    {% for c in categories %}
+    <tr>
+
+        <td>{{ c.category }}</td>
+
+        <td>{{ c.total_products }}</td>
+
+        <td>{{ c.total_stock }}</td>
+
+    </tr>
+    {% endfor %}
+
+    </tbody>
+
+</table>
+
+<br>
+
+</div>
+
+<a href="/" class="back-home">⬅ Back to Dashboard</a>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Add Product</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <div class="header">
+        <h1>Add Product</h1>
+        <p>Add New Product Details</p>
+    </div>
+
+     <!-- MAIN CARD -->
+    <div class="form-box">
+        <span class="badge">New Entry</span>
+
+        <form method="POST">
+
+            <h3>Product Name</h3>
+            <input type="text" name="name" placeholder="Product Name" required><br><br>
+            <h3>Category</h3>
+            <input type="text" name="category" placeholder="Category" required><br><br>
+            <h3>Cost Price</h3>
+            <input type="number" name="cost_price" placeholder="Cost Price" required><br><br>
+            <h3>Selling Price</h3>
+            <input type="number" name="selling_price" placeholder="Selling Price" required><br><br>
+            <h3>Stock</h3>
+            <input type="number" name="stock" placeholder="Stock" required><br><br>
+            <h3>Low Stock Limit</h3>
+            <input type="number" name="low_stock_limit" placeholder="Low Stock Limit" required><br><br>
+            <h3>Supplier Name</h3>
+            <input type="text" name="supplier" placeholder="Supplier Name" required><br><br>
+
+            <button type="submit" class="btn">Add Product</button>
+
+        </form>
+
+    </div>
+        
+    <a href="/" class="back-home">⬅ Back to Dashboard</a>
+
+</body>
+</html>

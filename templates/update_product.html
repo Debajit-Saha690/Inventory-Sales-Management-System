@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Product</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="header">
+    <h1>Update Product</h1>
+</div>
+
+<div class="form-box">
+    <form method="POST">
+
+        <h3>Product Name</h3>
+        <input type="text" name="name" value="{{ product.name }}" placeholder="Product Name"><br><br>
+        <h3>Category</h3>
+        <input type="text" name="category" value="{{ product.category }}" placeholder="Category"><br><br>
+        <h3>Cost Price</h3>
+        <input type="number" step="0.01" name="cost_price" value="{{ product.cost_price }}" placeholder="Cost Price"><br><br>
+        <h3>Selling Price</h3>
+        <input type="number" step="0.01" name="selling_price" value="{{ product.selling_price }}" placeholder="Selling Price"><br><br>
+        <h3>Low Stock Limit</h3>
+        <input type="number" name="low_stock_limit" value="{{ product.low_stock_limit }}" placeholder="Low Stock Limit"><br><br>
+        <h3>Supplier Name</h3>
+        <input type="text" name="supplier" value="{{ product.supplier }}" placeholder="Supplier Name"><br><br>
+
+        <button type="submit" class="btn update-btn">Update Product</button>
+
+    </form>
+</div>
+
+</body>
+</html>

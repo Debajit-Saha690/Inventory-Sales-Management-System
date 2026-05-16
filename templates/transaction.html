@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Transaction</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="header">
+    <h1>Stock Transactions</h1>
+    <p>Record purchase or sale of products</p>
+</div>
+
+<div class="form-box">
+
+    <h2>➕ Add Transaction</h2>
+
+    <form method="POST">
+
+        <!-- PRODUCT -->
+        <select name="product_id" required>
+            {% for p in products %}
+                <option value="{{ p.id }}">
+                    {{ p.name }} (Stock: {{ p.stock }})
+                </option>
+            {% endfor %}
+        </select><br><br>
+
+        <!-- TYPE -->
+        <select name="type" required>
+            <option value="purchase">Purchase</option>
+            <option value="sale">Sale</option>
+        </select><br><br>
+
+        <!-- QUANTITY -->
+        <input type="number" name="quantity" placeholder="Quantity" required><br><br>
+
+        <button type="submit" class="btn">Submit Transaction</button>
+
+    </form>
+
+</div>
+
+<a href="/" class="back-home">⬅ Back to Dashboard</a>
+
+</body>
+</html>

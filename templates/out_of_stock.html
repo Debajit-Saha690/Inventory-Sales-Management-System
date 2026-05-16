@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Out Of Stock Alert</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="header">
+
+    <h1>Out Of Stock Alert</h1>
+
+    <p>
+        Products that currently have zero inventory and need immediate restocking.
+    </p>
+
+</div>
+
+<div class="container dashboard">
+
+    {% if products %}
+
+    <table>
+
+        <thead>
+
+            <tr>
+                <th>ID</th>
+                <th>Product Name</th>
+                <th>Category</th>
+                <th>Cost Price</th>
+                <th>Selling Price</th>
+                <th>Status</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+        {% for p in products %}
+
+        <tr>
+
+            <td>{{ p.id }}</td>
+
+            <td>
+                <strong>{{ p.name }}</strong>
+            </td>
+            
+            <td>{{ p.category }}</td>
+
+            <td>₹ {{ p.cost_price }}</td>
+
+            <td>₹ {{ p.selling_price }}</td>
+
+            <td>
+                <span class="badge-danger">
+                    REORDER
+                </span>
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+    {% else %}
+
+    <div class="card">
+
+        <div class="icon">
+            ✅
+        </div>
+
+        <h2>All Stock Levels Normal</h2>
+
+        <p>
+            No products are currently have zero inventory.
+        </p>
+
+    </div>
+
+    {% endif %}
+
+</div>
+<a href="/" class="back-home">⬅ Back to Dashboard</a>
+</body>
+</html>
