@@ -9,7 +9,7 @@ from io import BytesIO
 app = Flask(__name__)
 
 
-# HOME PAGE (PUBLIC)
+# HOME PAGE 
 
 @app.route("/")
 def home():
