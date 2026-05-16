@@ -106,18 +106,6 @@ This project helped me understand:
 
 ---
 
-## 📸 Sample Outputs
-
-- Inventory dashboard overview
-  ![home1](screenshots/home1.png)
-  ![home2](screenshots/home2.png)
-  ![home3](screenshots/home3.png)
-  ![home4](screenshots/home4.png)
-- Transaction tracking system
-- Monthly sales graph
-
----
-
 ## ⭐ Final Note
 
 This project simulates a real retail inventory system with transaction-based analytics and business intelligence features, designed for academic and placement-level demonstration.
