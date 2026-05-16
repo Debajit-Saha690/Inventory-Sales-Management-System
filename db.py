@@ -5,14 +5,14 @@ def get_connection():
 
     """
     Creates and returns a MySQL database connection
-    for StockFlow Management System.
+    for Inventory Management System.
     """
 
     try:
         conn = mysql.connector.connect(
             host="localhost",
-            user="root",
-            password="Debajit@Saha1237890",
+            user="####",
+            password="#####",
             database="stockflow_db"
         )
 
