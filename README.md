@@ -1,6 +1,6 @@
 # 📦 Inventory & Sales Management System
 
-A full-stack web-based Inventory and Sales Management System built using Flask and MySQL that manages products, tracks stock levels, processes sales/purchases, and generates real-time business analytics.
+A full-stack web-based **Inventory and Sales Management System** built using Flask and MySQL that manages products, tracks stock levels, processes sales/purchases, and generates real-time business analytics.
 
 This project simulates a real-world retail inventory system where businesses can monitor stock, analyze sales performance, and make data-driven decisions.
 
@@ -103,6 +103,17 @@ This project helped me understand:
 - Business analytics concepts
 - Flask backend development
 - Real-world dashboard building
+
+---
+
+## Sample Outputs
+
+- Inventory dashboard overview
+- Product management system
+- Transaction tracking system
+- Monthly sales graph
+- Profit analytics dashboard
+- PDF report exports
 
 ---
 
