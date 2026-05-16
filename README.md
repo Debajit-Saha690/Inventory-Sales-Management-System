@@ -8,25 +8,25 @@ This project simulates a real-world retail inventory system where businesses can
 
 ## 🚀 Features
 
--🔐 **Admin-controlled system (basic access structure)**
+- 🔐 **Admin-controlled system (basic access structure)**
 
--➕ **Product Management**
+- ➕ **Product Management**
   - Add new products
   - Update product details
   - Delete products
   - View complete inventory list
 
--📦 **Stock Management**
+- 📦 **Stock Management**
   - Real-time stock updates
   - Low stock alerts
   - Out-of-stock tracking
 
--🔁 **Transaction System**
+- 🔁 **Transaction System**
   - Purchase entries (stock in)
   - Sales entries (stock out)
   - Automatic stock adjustment
 
--📊 **Smart Analytics Dashboard**
+- 📊 **Smart Analytics Dashboard**
   - Total products in system
   - Total stock available
   - Inventory valuation
@@ -34,11 +34,11 @@ This project simulates a real-world retail inventory system where businesses can
   - Profit calculation (transaction-based)
   - Profit margin analysis
 
--📈 **Data Visualization**
+- 📈 **Data Visualization**
   - Monthly sales graph
   - Sales trend analysis
 
--📄 **Report Generation**
+- 📄 **Report Generation**
   - Export product list as PDF
   - Export transaction history as PDF
 
