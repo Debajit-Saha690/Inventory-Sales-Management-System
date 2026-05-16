@@ -6,7 +6,7 @@ This project simulates a real-world retail inventory system where businesses can
 
 ---
 
-# 🚀 Features
+## 🚀 Features
 
 🔐 Admin-controlled system (basic access structure)
 
@@ -44,7 +44,7 @@ This project simulates a real-world retail inventory system where businesses can
 
 ---
 
-# 🧠 Business Intelligence Logic
+## 🧠 Business Intelligence Logic
 
 - Revenue calculated from actual sales transactions
 - Profit = Revenue - Cost of Goods Sold (COGS)
@@ -59,7 +59,7 @@ Includes:
 
 ---
 
-# 🛠️ Tech Stack
+## 🛠️ Tech Stack
 
 - Backend: Python (Flask)
 - Database: MySQL
@@ -69,7 +69,7 @@ Includes:
 
 ---
 
-# ⚙️ How It Works
+## ⚙️ How It Works
 
 - Admin adds products into inventory
 - Stock is updated through purchase/sale transactions
@@ -92,7 +92,7 @@ Includes:
 
 ---
 
-# 💡 Why I Built This
+## 💡 Why I Built This
 
 As a B.Tech CSE student, I wanted to build a real-world simulation of how inventory and billing systems work in retail businesses.
 
@@ -106,7 +106,7 @@ This project helped me understand:
 
 ---
 
-# 📸 Sample Outputs
+## 📸 Sample Outputs
 
 - Inventory dashboard overview
 - Product management system
@@ -117,6 +117,6 @@ This project helped me understand:
 
 ---
 
-# ⭐ Final Note
+## ⭐ Final Note
 
 This project simulates a real retail inventory system with transaction-based analytics and business intelligence features, designed for academic and placement-level demonstration.
