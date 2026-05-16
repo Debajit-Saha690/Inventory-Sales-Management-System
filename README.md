@@ -8,39 +8,39 @@ This project simulates a real-world retail inventory system where businesses can
 
 ## 🚀 Features
 
-🔐 Admin-controlled system (basic access structure)
+-🔐 **Admin-controlled system (basic access structure)**
 
-➕ Product Management
-- Add new products
-- Update product details
-- Delete products
-- View complete inventory list
+-➕ **Product Management**
+  - Add new products
+  - Update product details
+  - Delete products
+  - View complete inventory list
 
-📦 Stock Management
-- Real-time stock updates
-- Low stock alerts
-- Out-of-stock tracking
+-📦 **Stock Management**
+  - Real-time stock updates
+  - Low stock alerts
+  - Out-of-stock tracking
 
-🔁 Transaction System
-- Purchase entries (stock in)
-- Sales entries (stock out)
-- Automatic stock adjustment
+-🔁 **Transaction System**
+  - Purchase entries (stock in)
+  - Sales entries (stock out)
+  - Automatic stock adjustment
 
-📊 Smart Analytics Dashboard
-- Total products in system
-- Total stock available
-- Inventory valuation
-- Revenue calculation (from sales)
-- Profit calculation (transaction-based)
-- Profit margin analysis
+-📊 **Smart Analytics Dashboard**
+  - Total products in system
+  - Total stock available
+  - Inventory valuation
+  - Revenue calculation (from sales)
+  - Profit calculation (transaction-based)
+  - Profit margin analysis
 
-📈 Data Visualization
-- Monthly sales graph
-- Sales trend analysis
+-📈 **Data Visualization**
+  - Monthly sales graph
+  - Sales trend analysis
 
-📄 Report Generation
-- Export product list as PDF
-- Export transaction history as PDF
+-📄 **Report Generation**
+  - Export product list as PDF
+  - Export transaction history as PDF
 
 ---
 
@@ -51,21 +51,21 @@ This project simulates a real-world retail inventory system where businesses can
 - Profit margin = Profit efficiency from sales
 - Inventory value = Current stock × cost price
 
-Includes:
+-**Includes:**
 
-- Real vs potential business value separation
-- Transaction-based financial tracking
-- Stock-based valuation system
+  - Real vs potential business value separation
+  - Transaction-based financial tracking
+  - Stock-based valuation system
 
 ---
 
 ## 🛠️ Tech Stack
 
-- Backend: Python (Flask)
-- Database: MySQL
-- Frontend: HTML, CSS, Jinja2
-- Visualization: Chart.js
-- Report Generation: ReportLab
+- **Backend:** Python (Flask)
+- **Database:** MySQL
+- **Frontend:** HTML, CSS, Jinja2
+- **Visualization:** Chart.js
+- **Report Generation:** ReportLab
 
 ---
 
