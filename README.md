@@ -109,11 +109,12 @@ This project helped me understand:
 ## 📸 Sample Outputs
 
 - Inventory dashboard overview
-- Product management system
+  ![home1](screenshots/home1.png)
+  ![home2](screenshots/home2.png)
+  ![home3](screenshots/home3.png)
+  ![home4](screenshots/home4.png)
 - Transaction tracking system
 - Monthly sales graph
-- Profit analytics dashboard
-- PDF report exports
 
 ---
 
