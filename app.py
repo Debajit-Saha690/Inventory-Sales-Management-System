@@ -7,7 +7,7 @@ from reportlab.lib.styles import getSampleStyleSheet
 from io import BytesIO
 
 app = Flask(__name__)
-
+app.secret_key = os.environ.get("SECRET_KEY", "development-secret-key")
 
 # HOME PAGE 
 
