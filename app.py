@@ -117,6 +117,33 @@ def home():
         recent_products=recent_products
     )
 
+@app.route("/admin", methods=["GET", "POST"])
+def admin_login():
+
+    if session.get("admin"):
+        return redirect("/")
+
+    if request.method == "POST":
+        username = request.form["username"]
+        password = request.form["password"]
+
+        if username == "admin" and password == "admin@2k28":
+            session["admin"] = True
+
+            next_page = request.args.get("next")
+            if next_page:
+                return redirect(next_page)
+
+            return redirect("/")
+        return "Invalid Credentials"
+    return render_template("admin_login.html")
+
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect("/")
+
 
 # ADD PRODUCT 
 
