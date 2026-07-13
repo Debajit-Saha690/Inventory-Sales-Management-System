@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login</title>
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <h1>Candidate Screening & Ranking System</h1>
+        <p>Admin Login Portal</p>
+    </div>
+
+    <!-- LOGIN CARD -->
+    <div class="form-box">
+
+        <span class="badge">ADMIN ACCESS</span>
+
+        <h2>🔐 Login</h2>
+
+        <form method="POST">
+
+            <input type="text" name="username" placeholder="Enter Username" required>
+
+            <input type="password" name="password" placeholder="Enter Password" required>
+
+            <button class="btn" type="submit">Login</button>
+
+        </form>
+
+        <p style="text-align:center; margin-top:15px; font-size:12px; color:#94a3b8;">
+            Secure login for authorized recruiters only
+        </p>
+
+    </div>
+
+    <!-- BACK BUTTON -->
+    <a href="/" class="back-home">⬅ Back to Dashboard</a>
+
+</body>
+</html>
