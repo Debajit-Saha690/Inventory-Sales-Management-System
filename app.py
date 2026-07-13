@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, request, redirect, session, Response
 from db import get_connection
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer
