@@ -134,6 +134,20 @@ button {
     z-index: 1000;
 }
 
+/* LOGOUT BUTTON */
+.logout-btn {
+    width: auto;
+    display: inline-block;
+    padding: 12px 18px;
+    background: #ef4444;
+    border-color: #ef4444;
+    color: white;
+}
+
+.logout-btn:hover {
+    background: #dc2626;
+}
+
 /* LARGE BUTTON */
 .big-btn,
 button {
