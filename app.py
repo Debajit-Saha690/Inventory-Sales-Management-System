@@ -152,6 +152,9 @@ def logout():
 
 def add_product():
 
+    if not session.get("admin"):
+        return redirect("/admin?next=/add")
+
     if request.method == "POST":
 
         conn = get_connection()
